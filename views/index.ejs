@@ -1,0 +1,11 @@
+<form  method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="image"/>
+    <input type="submit" value="upload"/>
+</form>
+<%  images.forEach(function (image){%>
+      <p>
+        <a href="/image/<%= image._id %>">
+            <%= image.name %>
+          </a>
+      </p>
+<% }) %> 
