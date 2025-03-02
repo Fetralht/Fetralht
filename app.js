@@ -5,7 +5,7 @@ const fs=require("fs")
 const expressFormidable=require('express-formidable')
 const bodyParser=require('body-parser')
 const Port=process.env.PORT || 2020
-const uri='mongodb+srv://lavex2002:182002@cluster0.dfv5ser.mongodb.net/?retryWrites=true&w=majority'
+const uri='mongodb://localhost:27017/DataIamge'
 const app=express()
 const client=new MongoClient(uri)
 app.use(expressFormidable())
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 //app.use(express.urlencoded({ extended: true }));
 
 
- client.connect()
+client.connect()
 console.log('database connected succefully!');
   
 app.post("/upload", async (req,res)=>{
@@ -72,6 +72,7 @@ app.get("/",async (req,res)=>{
         images:images
      })
 })
+
      
 
    
